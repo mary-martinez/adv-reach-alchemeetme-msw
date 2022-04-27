@@ -37,7 +37,7 @@ test('Should render the header', async () => {
   render(<App />)
   const banner = screen.getByRole('banner')
   const headerImg = screen.getByAltText(/alchemy/i)
-  screen.debug();
+
   const profileName = await screen.findByText(user.name)
 
   expect(banner).toHaveStyle({
