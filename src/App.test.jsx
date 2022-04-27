@@ -23,7 +23,7 @@ const user = {
 
 // 🚨 Create your server
 const server = setupServer(
-  rest.get(`https://uzgiamkrbapxufnwdrja.supabase.co/rest/v1/users`, (req, res, ctx) => res(ctx.json([user])))
+  rest.get(`${process.env.REACT_APP_SUPABASE_URL}/rest/v1/users`, (req, res, ctx) => res(ctx.json([user])))
 )
 // 🚨 Listen for server start
 beforeAll(() => server.listen());
@@ -60,7 +60,7 @@ test('Should render the header with Sasuke 🌬️🔥', async () => {
   }
 
   // 🚨 Use the server to change the response for this test
-  server.use(rest.get(`https://uzgiamkrbapxufnwdrja.supabase.co/rest/v1/users`, (req, res, ctx) => res(ctx.json([sasuke])))
+  server.use(rest.get(`${process.env.REACT_APP_SUPABASE_URL}/rest/v1/users`, (req, res, ctx) => res(ctx.json([sasuke])))
   )
   render(<App />)
 
