@@ -26,7 +26,6 @@ test('Should send a user object with all needed properties', async () => {
 
 test('Should render the user profile', async () => {
   render(<Home user={user} />)
-
   const { name, color, motto, likes } = user
 
   const profileHeader = await screen.findByAltText('header')
